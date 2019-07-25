@@ -1,0 +1,68 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+body{
+  background: url(../img/aligif.gif);
+  background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-color: rgb(45, 49, 77);
+  font-family: Roboto;
+
+}
+form{
+margin-top:10%;
+margin-left: 37%;
+width: 50%;
+max-width: 350px;
+background: rgba(0,0,0,.8);
+padding:30px;
+border: 1px solid rgba(0,0,0,.8)
+
+}
+h2{
+    text-align: center;
+    margin-bottom: 20px;
+    color:rgba(255,255,255,.8);
+}
+
+select{
+    display:block;
+    padding:5px;
+    width: 100%;
+    margin:15px 0;
+    background: rgba(255,255,255,.8);
+    border-radius: 2px;
+    border-bottom: 4px solid #ff851b;
+}
+input{
+    display:block;
+padding:5px;
+width: 100%;
+margin:15px 0;
+border-radius: 2px;
+background: rgba(255,255,255,.8);
+
+    border-bottom: 4px solid #ff851b;
+}
+input[type="submit"]{
+    background: linear-gradient(#FFDA63, #FFB940);
+    border: 0;
+    color: brown;
+    opacity: 0.9;
+    cursor; pointer;
+    border-radius: 10px;
+margin-bottom: 0;
+
+}
+
+input[type="submit"]:hover{
+    opacity: 1;
+
+}
+input[type="submit"]:hover{
+    transform: scale(0.95);
+}

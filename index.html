@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1,minimum-scale=1"></meta>
+    <title>Las Alitas</title>
+    <link rel="stylesheet" href="css/estilos.css">
+
+    <script src="validacion.js"></script>
+    <script type="text/javascript">
+
+    var nombres_1;
+    var apellidos_1;
+    var email_1;
+    var sucursal_1;
+    var monto_1;
+    var ticket_1;
+    var info;
+
+    function funcion_enviar() {
+
+      nombres_1 = document.getElementById('nombres').value
+      apellidos_1 = document.getElementById('apellidos').value
+      email_1 = document.getElementById('email').value
+      sucursal_1 = document.getElementById('sucursal').value
+      monto_1 = document.getElementById('monto').value
+      ticket_1 = document.getElementById('ticket').value
+
+      agregarinfo();
+
+      }
+    function agregarinfo() {
+        info = new Inf(nombres_1,apellidos_1,email_1,sucursal_1,monto_1,ticket_1);
+        enviarInfo(info);
+      }
+
+function enviarInfo(info){
+  var dataSend = {
+    action: "addCliente",
+    name: info.name,
+
+  };
+}
+
+    	</script>
+</head>
+<body>
+
+            <form action="registro.php" method="post" onsubmit="return validar();">
+              <h2>Registro de informacion</h2>
+              <input type="text"  name="nombres" placeholder="Nombres" required>
+              <input type="text" name="apellidos" placeholder="Apellidos" required>
+              <input type="text" name="email" placeholder="Email" required>
+              <select name="sucursal">
+                <option value="Monterrey">Monterrey</option>
+                <option value="san-nicolas">San nicolas</option>
+                <option value="cumbres">Cumbres</option>
+                <option value="guadalupe">Guadalupe</option>
+              </select>
+              <input type="text" name="monto" placeholder="Monto" required>
+              <input type="text" name="ticket" placeholder="N° ticket" required>
+              <input type="submit" onclick="funcion_enviar()"value="Enviar">
+            </form>
+
+
+</body>
+</html>

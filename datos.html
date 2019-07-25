@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script type="text/javascript">
+
+$(document).ready(function() {
+
+  getProducts();
+
+  function getProducts() {
+
+  //JSON
+  var persona ={};
+
+  //convertimos el objeto persona de js a formato JSON
+  var miJSON = JSON.stringify(persona);
+
+  //convertimos el formato JSON a objeto de js
+  var miPersona = JSON.parse(miJSON);
+
+
+
+  var dataSend = {
+    action: "getProducts",
+  };
+
+  $.ajax({
+    url: "http://localhost/formulario1.1/datos.html",
+    async: true,
+    type: 'POST',
+    data: dataSend,
+    dataType:'json',
+    success: function(respuestaDelServidor){
+
+      for (var i = 0; i < respuestaDelServidor.length; i++) {
+        var nombres_1 = respuestaDelServidor[i].nombres;
+        var apellidos_1 = respuestaDelServidor[i].apellidos;
+        var email_1 = respuestaDelServidor[i].email;
+        var sucursal_1 = respuestaDelServidor[i].sucursal;
+        var monto_1 = respuestaDelServidor[i].monto;
+        var ticket_1 = respuestaDelServidor[i].ticket;
+
+        var product2 = new Inf(nombres_1,apellidos_1,email_1,sucursal_1,monto_1,ticket_1);
+        var table = document.getElementById("product-list");
+          var row = table.insertRow();
+          var cell1 = row.insertCell(0);
+          var cell2 = row.insertCell(1);
+          var cell3 = row.insertCell(2);
+          var cell4 = row.insertCell(3);
+          var cell5 = row.insertCell(4);
+          var cell6 = row.insertCell(5);
+        /*  cell1.innerHTML = name;
+          cell2.innerHTML =  score;
+          cell3.innerHTML =  tiempo;
+*/
+          cell1.innerHTML = nombres_1;
+          cell2.innerHTML =  apellidos_1;
+          cell3.innerHTML =  email_1;
+          cell4.innerHTML =  sucursal_1;
+          cell5.innerHTML =  monto_1;
+          cell6.innerHTML =  ticket_1;
+
+
+
+
+
+      }
+
+    },
+    error: function(x,y,z){
+      alert("Error al consultar con el servidor");
+    }
+
+  });
+
+}
+});
+
+  </script>
+</head>
+
+<body>
+
+
+<img src="puntaje/bg.jpg" id="fsize" alt="">
+  <div class="imagen-dentro">
+    <div id="main-container">
+
+  <h1>Puntaje</h1>
+  <form action="getdata.php">
+  <input type="submit" value="my button"/>
+</form>
+  <table id="product-list">
+        <thead>
+        <tr>
+        <th>Nombre</th><th>Puntaje</th><th>Tiempo</th>
+        </tr>
+        </thead>
+        <tr>
+      </table>
+    </div>
+
+    <a class="btn" href="index.html">HOME</a>
+
+  </div>
+
+
+</body>
+</html>
